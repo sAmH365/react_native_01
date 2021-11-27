@@ -1,13 +1,5 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
-
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, ScrollView } from 'react-native'
 import Header from './src/header';
 import Generator from './src/generator';
 import NumList from './src/numList';
@@ -30,9 +22,6 @@ class App extends Component {
 
   onNumDelete = (position) => {
     const newArray = this.state.randomNumber.filter((num, idx) => {
-      // 선택한 값과 state에 있는 배열의 인덱스가 다른 값만 배열로 만들어 반환 한다 => 선택한 값은 빼고 배열로 만듦 => 선택값 삭제
-      // position === 선택한 숫자의 인덱스
-      // idx === randomNumber 배열의 인덱스
       return position != idx;
     })
     this.setState(prev => {
@@ -56,10 +45,15 @@ class App extends Component {
         </View>
 
         <Generator add={this.onAddRandomNumber}/>
-        <NumList
-         num={this.state.randomNumber}
-         delete={this.onNumDelete}
-         />
+        <ScrollView style={{width: '100%'}}
+          // onScroll={() => alert('onScroll')}
+          onMomentumScrollBegin={() => alert('onMomentumScrollBegin')}
+        >
+          <NumList
+          num={this.state.randomNumber}
+          delete={this.onNumDelete}
+          />
+         </ScrollView>
       </View>
   )
   }
