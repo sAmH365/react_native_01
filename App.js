@@ -8,20 +8,18 @@
 
 import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native'
+import Header from './src/header';
+
 
 class App extends Component {
+  state = {
+    appName: 'my First App'
+  }
+
   render() {
     return ( 
       <View style={styles.mainView}>
-        <View style={styles.subView}>
-          <Text style={styles.mainText}>react Native</Text>
-        </View>
-        <View style={styles.subView}>
-          <Text>react Native</Text>
-        </View>
-        <View style={styles.anotherSubView}>
-          <Text style={styles.mainText}>react Native</Text>
-        </View>
+        <Header name={this.state.appName}/>
       </View>
   )
   }
@@ -30,7 +28,7 @@ class App extends Component {
 const styles = StyleSheet.create({
   mainView: {
     flex: 1,
-    backgroundColor: 'green',
+    backgroundColor: 'white',
     paddingTop: 50,
     alignItems: 'center',
     justifyContent: 'center'
@@ -38,8 +36,6 @@ const styles = StyleSheet.create({
   subView: {
     backgroundColor: 'yellow',
     marginBottom: 10,
-    flex: 1,
-    width: '50%'
   },
   anotherSubView: {
     backgroundColor: 'yellow',
@@ -51,8 +47,8 @@ const styles = StyleSheet.create({
   },
   mainText: {
     color: 'red',
-    fontWeight: 'bold',
-    fontSize: 50,
+    fontWeight: 'normal',
+    fontSize: 20,
     padding: 20,
   }
 })
