@@ -1,14 +1,16 @@
 
  import React, { Component } from 'react';
- import { View, Text, StyleSheet, Button } from 'react-native'
+ import { View, Text, StyleSheet, Button, TouchableOpacity } from 'react-native'
  
 const NumList = (props) => {
   return (
     props.num.map((item, idx) => (
-    <View 
-      style={styles.numList} key={idx}>
+    <TouchableOpacity
+      style={styles.numList} key={idx}
+      onPress={() => props.delete(idx)}
+    >
       <Text>{item}</Text>
-    </View>
+    </TouchableOpacity>
     ))
   )
 }
