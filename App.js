@@ -4,6 +4,7 @@ import Header from './src/header';
 import Generator from './src/generator';
 import NumList from './src/numList';
 import Input from './src/input';
+import PickerComponent from './src/picker';
 
 
 class App extends Component {
@@ -32,6 +33,7 @@ class App extends Component {
   render() {
     return ( 
       <View style={styles.mainView}>
+        <PickerComponent/>
         <TextInput
           value={this.state.myTextInput}
           onChangeText={this.onChangeText}
